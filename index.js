@@ -1,4 +1,7 @@
 const puppeteer = require('puppeteer');
+const express = require('express');
+const app = express();
+const port = process.env.PORT || 8080;
 
 var bb;
 
@@ -78,10 +81,11 @@ let url = 'https://www.imovelweb.com.br/propriedades/apartamento-ponta-das-canas
     const browser = await puppeteer.launch({
       ignoreHTTPSErrors: true,
       headless: false,
-      args: [
-        '--start-maximizgetElemented' // you can also use '--start-fullscreen'
-      ]
-    }
+      // args: [
+      //   '--start-maximizgetElemented' // you can also use '--start-fullscreen'
+      // ]
+      args: ['--no-sandbox','--disable-setuid-sandbox', '--disable-dev-shm-usage']}
+    
     );
 
     bb = browser;
@@ -171,7 +175,7 @@ let url = 'https://www.imovelweb.com.br/propriedades/apartamento-ponta-das-canas
 
 
 
-    await page.waitFor(2000);
+    // await page.waitFor(2000);
 
 
     //         const newPagePromise = new Promise(x => browser.on('_targetInfoChanged', target => x(target.page())));
@@ -180,22 +184,36 @@ let url = 'https://www.imovelweb.com.br/propriedades/apartamento-ponta-das-canas
 
     // var page2 = (await browser.pages())[2];
 
-    await page.screenshot({ path: 'example.png' });
+    // await page.screenshot({ path: 'example.png' });
 
 
-    console.log(resposta);
+    // console.log(resposta);
 
 
     await browser.close();
-
+      return resposta;
 
   };
 
-init(url).catch((e) => {
-  console.log('err: ' + e);
-  console.log('erro geral');
-  bb.close();
-});
-console.log("fim");
+  init(url).then((resposta) => {
+    console.log(resposta);
+    return 
+    
+  })
+  .catch((e) => {
+    console.log('err: ' + e);
+    console.log('erro geral');
+    bb.close();
+  });
+  console.log("fim");
+
+
+// app.get('/buscar', function(req, res) {
+
+//   var url = req.query.cnpj;
+
+
+// });
+
 
 // console.log("teste");
