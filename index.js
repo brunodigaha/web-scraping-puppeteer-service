@@ -195,25 +195,29 @@ let url = 'https://www.imovelweb.com.br/propriedades/apartamento-ponta-das-canas
 
   };
 
-  init(url).then((resposta) => {
-    console.log(resposta);
-    return 
+  // init(url).then((resposta) => {
+  //   console.log(resposta);
+  //   return 
     
-  })
-  .catch((e) => {
-    console.log('err: ' + e);
-    console.log('erro geral');
-    bb.close();
-  });
+  // })
+  // .catch((e) => {
+  //   console.log('err: ' + e);
+  //   console.log('erro geral');
+  //   bb.close();
+  // });
   console.log("fim");
 
 
-// app.get('/buscar', function(req, res) {
+app.get('/buscar', function(req, res) {
 
-//   var url = req.query.cnpj;
+  var url = req.query.url;
 
+  res.send(JSON.stringify({ bruno: url }));
+});
 
-// });
+app.listen(port, function() {
+  console.log('App listening on port ' + port)
+})
 
 
 // console.log("teste");
