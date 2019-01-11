@@ -221,7 +221,3 @@ app.get('/buscar', function (req, res) {
 app.listen(PORT, function () {
   console.log('App listening on port ' + PORT)
 })
-
-
-
-// console.log("teste");
