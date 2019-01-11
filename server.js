@@ -79,7 +79,7 @@ let url = 'https://www.imovelweb.com.br/propriedades/apartamento-ponta-das-canas
 
 
     const browser = await puppeteer.launch({
-      ignoreHTTPSErrors: true,
+      // ignoreHTTPSErrors: true,
       headless: true,
       // args: [
       //   '--start-maximizgetElemented' // you can also use '--start-fullscreen'
