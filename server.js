@@ -80,7 +80,7 @@ let url = 'https://www.imovelweb.com.br/propriedades/apartamento-ponta-das-canas
 
     const browser = await puppeteer.launch({
       // ignoreHTTPSErrors: true,
-      headless: true,
+      headless: false,
       // args: [
       //   '--start-maximizgetElemented' // you can also use '--start-fullscreen'
       // ]
@@ -139,40 +139,64 @@ let url = 'https://www.imovelweb.com.br/propriedades/apartamento-ponta-das-canas
     //   console.log(x);
     // })
 
-    await page.evaluate(() =>
-      document.querySelector('.title-type-sup').textContent).then(x => {
-        resposta.imovel.titulo_imovel = x;
-      })
+    try {
+      await page.evaluate(() =>
+        document.querySelector('.title-type-sup').textContent).then(x => {
+          resposta.imovel.titulo_imovel = x;
+        });
+    } catch (e) {
+      console.log('an expection on page.evaluate ', e);
+    }
 
-    await page.evaluate(() =>
-      document.querySelector('#verDatosDescripcion').textContent).then(x => {
-        resposta.imovel.descricao = x;
-      })
+    try {
+      await page.evaluate(() =>
+        document.querySelector('#verDatosDescripcion').textContent).then(x => {
+          resposta.imovel.descricao = x;
+        })
+    } catch (e) {
+      console.log('an expection on page.evaluate ', e);
+    }
 
-    await page.evaluate(() =>
-      document.querySelector('#sidebar-price-container > div > div.block-price.block-row > div.price-items').textContent).then(x => {
-        resposta.imovel.valor = x;
-      })
+    try {
+      await page.evaluate(() =>
+        document.querySelector('#sidebar-price-container > div > div.block-price.block-row > div.price-items').textContent).then(x => {
+          resposta.imovel.valor = x;
+        })
+    } catch (e) {
+      console.log('an expection on page.evaluate ', e);
+    }
 
     // await page.evaluate(() =>
     //   document.querySelector('#article-container > hgroup > h2.title-location > b').textContent).then(x => {
     //     resposta.imovel.enderecos.logradouro = x;
     //   })
 
-    await page.evaluate(() =>
-      document.querySelector('#article-container > section.general-section.article-section.article-section-description > ul > li:nth-child(3) > b').textContent).then(x => {
-        resposta.imovel.caracteristicas.banheiro = x;
-      })
+    try {
+      await page.evaluate(() =>
+        document.querySelector('#article-container > section.general-section.article-section.article-section-description > ul > li:nth-child(3) > b').textContent).then(x => {
+          resposta.imovel.caracteristicas.banheiro = x;
+        });
+    } catch (e) {
+      console.log('an expection on page.evaluate ', e);
+    }
 
-    await page.evaluate(() =>
-      document.querySelector('#article-container > section.general-section.article-section.article-section-description > ul > li:nth-child(5) > b').textContent).then(x => {
-        resposta.imovel.caracteristicas.dormitorio = x;
-      })
+    try {
+      await page.evaluate(() =>
+        document.querySelector('#article-container > section.general-section.article-section.article-section-description > ul > li:nth-child(5) > b').textContent).then(x => {
+          resposta.imovel.caracteristicas.dormitorio = x;
+        })
+    } catch (e) {
+      console.log('an expection on page.evaluate ', e);
+    }
 
-    await page.evaluate(() =>
-      document.querySelector('#article-container > section.general-section.article-section.article-section-description > ul > li:nth-child(5) > b').textContent).then(x => {
-        resposta.imovel.caracteristicas.suite = x;
-      })
+    try {
+      await page.evaluate(() =>
+        document.querySelector('#article-container > section.general-section.article-section.article-section-description > ul > li:nth-child(5) > b').textContent).then(x => {
+          resposta.imovel.caracteristicas.suite = x;
+        })
+    } catch (e) {
+      console.log('an expection on page.evaluate ', e);
+    }
 
 
 
@@ -198,6 +222,15 @@ let url = 'https://www.imovelweb.com.br/propriedades/apartamento-ponta-das-canas
 
 
 console.log("fim");
+
+init(url).then((resposta) => {
+  console.log(resposta);
+})
+  .catch((e) => {
+    console.log('err: ' + e);
+    console.log('erro geral');
+    bb.close();
+  });
 
 
 app.get('/buscar', function (req, res) {
