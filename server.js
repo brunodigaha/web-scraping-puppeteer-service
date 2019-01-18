@@ -145,7 +145,7 @@ let url = 'https://www.imovelweb.com.br/propriedades/apartamento-ponta-das-canas
           resposta.imovel.titulo_imovel = x;
         });
     } catch (e) {
-      console.log('an expection on page.evaluate ', e);
+      console.log('erro titulo_imovel ', e);
     }
 
     try {
@@ -154,7 +154,7 @@ let url = 'https://www.imovelweb.com.br/propriedades/apartamento-ponta-das-canas
           resposta.imovel.descricao = x;
         })
     } catch (e) {
-      console.log('an expection on page.evaluate ', e);
+      console.log('erro descricao', e);
     }
 
     try {
@@ -163,7 +163,7 @@ let url = 'https://www.imovelweb.com.br/propriedades/apartamento-ponta-das-canas
           resposta.imovel.valor = x;
         })
     } catch (e) {
-      console.log('an expection on page.evaluate ', e);
+      console.log('errro valor ', e);
     }
 
     // await page.evaluate(() =>
@@ -177,7 +177,7 @@ let url = 'https://www.imovelweb.com.br/propriedades/apartamento-ponta-das-canas
           resposta.imovel.caracteristicas.banheiro = x;
         });
     } catch (e) {
-      console.log('an expection on page.evaluate ', e);
+      console.log('erro banheiro ', e);
     }
 
     try {
@@ -186,7 +186,7 @@ let url = 'https://www.imovelweb.com.br/propriedades/apartamento-ponta-das-canas
           resposta.imovel.caracteristicas.dormitorio = x;
         })
     } catch (e) {
-      console.log('an expection on page.evaluate ', e);
+      console.log('erro dormitorio ', e);
     }
 
     try {
@@ -195,7 +195,7 @@ let url = 'https://www.imovelweb.com.br/propriedades/apartamento-ponta-das-canas
           resposta.imovel.caracteristicas.suite = x;
         })
     } catch (e) {
-      console.log('an expection on page.evaluate ', e);
+      console.log('errro suite ', e);
     }
 
 
