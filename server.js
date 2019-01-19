@@ -17,7 +17,7 @@ function getElement(selector) {
   return ""
 }
 
-let url = 'https://www.imovelweb.com.br/propriedades/apartamento-ponta-das-canas-2935774343.html?labs=I-27-i-i-removeTipoCategoria-&userid=0&itemid=2935270194&labs_source=RECOMENDADOS_FICHA_PROPIEDAD_DESKTOP',
+let url = 'https://www.imovelweb.com.br/propriedades/02-dormitorios-em-itapema-sc-2939154846.html',
 
   init = async (url) => {
 
@@ -60,12 +60,6 @@ let url = 'https://www.imovelweb.com.br/propriedades/apartamento-ponta-das-canas
           "suite": 0
         },
         "imagens": [
-          {
-            "url": ""
-          },
-          {
-            "url": ""
-          },
           {
             "url": ""
           }
@@ -197,6 +191,128 @@ let url = 'https://www.imovelweb.com.br/propriedades/apartamento-ponta-das-canas
     } catch (e) {
       console.log('errro suite ', e);
     }
+
+
+    // try {
+    //   await page.evaluate(() =>
+    //     document.querySelector('#tab-foto-flickity > div > div > figure > img')).then(x => {
+
+    //       // console.log(x[0])
+    //       // for (const el of x) {
+    //       //   if (el.dataset.url.search(/(.jpg)|(.png)$/) >= 0) {
+    //       //     imageLinks.push(el.dataset.url);
+    //       //     console.log(el.dataset.url)
+    //       //   }
+    //       // }
+    //       console.log("-------------------------------------------------"+x.getAttribute('src'))
+    //     })
+    // } catch (e) {
+    //   console.log('errro imagens ---------- ', e);
+    // }
+
+    try {
+      await page.evaluate(() =>
+      // document.querySelector('#tab-foto-flickity > div > div > figure:nth-child(2) > img').textContent).then(x => {
+      document.querySelectorAll('#tab-foto-flickity > div > div > figure > img')[1].getAttribute('src')).then(x => {
+          // resposta.imovel.caracteristicas.suite = x;
+          console.log("aqui",x)
+        })
+    } catch (e) {
+      console.log('errro suite ', e);
+    }
+
+
+    // try {
+    //   console.log(await page.evaluate( () => Array.from( document.querySelectorAll( '#tab-foto-flickity > div > div > figure.slide-content' ), element => element.textContent ) ));
+
+    // } catch (e) {
+    //   console.log('errro imagens ', e);
+    // }
+
+    // try {    // try {
+    //   awa    //   console.log(await page.evaluate( () => Array.from( document.querySelectorAll( '#tab-foto-flickity > div > div > figure.slide-content' ), element => element.textContent ) ));(() =>
+    //     dector('slide-content').getAttribute('src')).then(imgs => {
+    //          // } catch (e) {s);
+    //          //   console.log('errro imagens ', e);gens = Array.from( imgs , element => element.textContent );
+    //          // }.forEach(function(img){
+    //       //  console.log(img);
+    //       // });
+    //     })
+    // } catch (e) {
+    //   console.log('errro suite ', e);
+    // }
+
+    // page.evaluate(() => {
+    //   let imageLinks = [];
+    //   let elements = docume
+
+    // try {
+    //   await page.evaluate(() =>
+    //     document.querySelector('#tab-foto-flickity > div > div > figure > img')).then(x => {
+
+    //       // console.log(x[0])
+    //       // for (const el of x) {
+    //       //   if (el.dataset.url.search(/(.jpg)|(.png)$/) >= 0) {
+    //       //     imageLinks.push(el.dataset.url);
+    //       //     console.log(el.dataset.url)
+    //       //   }
+    //       // }
+    //       console.log("-------------------------------------------------"+)
+    //     })
+    // } catch (e) {
+    //   console.log('errro imagens ---------- ', e);
+    // }
+
+
+    // try {
+    //   console.log(await page.evaluate( () => Array.from( document.querySelectorAll( '#tab-foto-flickity > div > div > figure.slide-content' ), element => element.textContent ) ));
+
+    // } catch (e) {
+    //   console.log('errro imagens ', e);
+    // }
+
+    // try {    // try {
+    //   awa    //   console.log(await page.evaluate( () => Array.from( document.querySelectorAll( '#tab-foto-flickity > div > div > figure.slide-content' ), element => element.textContent ) ));(() =>
+    //     dector('slide-content').getAttribute('src')).then(imgs => {
+    //          // } catch (e) {s);
+    //          //   console.log('errro imagens ', e);gens = Array.from( imgs , element => element.textContent );
+    //          // }.forEach(function(img){
+    //       //  console.log(img);
+    //       // });
+    //     })
+    // } catch (e) {
+    //   console.log('errro suite ', e);
+    // }
+
+    // page.evaluate(() => {
+    //   let imageLinks = [];
+    //   let elements = document.querySelectorAll('#tab-foto-flickity > div > div > figure.slide-content');
+
+    //   console.log(elements)
+    //   // for (const el of elements) {nt.querySelectorAll('#tab-foto-flickity > div > div > figure.slide-content');
+
+    //   console.log(elements)
+    //   // for (const el of elements) {
+    //   //   if (el.dataset.url.search(/(.jpg)|(.png)$/) >= 0) {
+    //   //     imageLinks.push(el.dataset.url);
+    //   //     console.log(el.dataset.url)
+    //   //   }
+    //   // }
+    //   return imageLinks;
+    // });
+
+    // const results = page.evaluate(() => {
+    //   const imageLinks = [];
+    //   const elements = document.querySelectorAll('#tab-foto-flickity > div > div > figure.slide-content');
+
+    //   for (const el of elements) {
+    //     if (el.dataset.url.search(/(.jpg)|(.png)$/) >= 0) {
+    //       imageLinks.push(el.dataset.url);
+    //     }
+    //   }
+    //   return imageLinks;
+    // });
+
 
 
 
