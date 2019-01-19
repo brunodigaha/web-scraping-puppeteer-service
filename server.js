@@ -213,12 +213,12 @@ let url = 'https://www.imovelweb.com.br/propriedades/02-dormitorios-em-itapema-s
     try {
       await page.evaluate(() =>
       // document.querySelector('#tab-foto-flickity > div > div > figure:nth-child(2) > img').textContent).then(x => {
-      document.querySelectorAll('#tab-foto-flickity > div > div > figure > img')[1].getAttribute('src')).then(x => {
-          // resposta.imovel.caracteristicas.suite = x;
+      document.querySelectorAll('#tab-foto-flickity > div > div > figure > img')[0].getAttribute('src')).then(x => {
+          resposta.imovel.imagens[0].url = x;
           console.log("aqui",x)
         })
     } catch (e) {
-      console.log('errro suite ', e);
+      console.log('errro imagem ', e);
     }
 
 
@@ -339,14 +339,14 @@ let url = 'https://www.imovelweb.com.br/propriedades/02-dormitorios-em-itapema-s
 
 console.log("fim");
 
-init(url).then((resposta) => {
-  console.log(resposta);
-})
-  .catch((e) => {
-    console.log('err: ' + e);
-    console.log('erro geral');
-    bb.close();
-  });
+// init(url).then((resposta) => {
+//   console.log(resposta);
+// })
+//   .catch((e) => {
+//     console.log('err: ' + e);
+//     console.log('erro geral');
+//     bb.close();
+//   });
 
 
 app.get('/buscar', function (req, res) {
