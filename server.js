@@ -74,7 +74,7 @@ let url = 'https://www.imovelweb.com.br/propriedades/02-dormitorios-em-itapema-s
 
     const browser = await puppeteer.launch({
       // ignoreHTTPSErrors: true,
-      headless: false,
+      headless: true,
       // args: [
       //   '--start-maximizgetElemented' // you can also use '--start-fullscreen'
       // ]
