@@ -356,7 +356,7 @@ app.get('/buscar', function (req, res) {
   init(url).then((resposta) => {
     console.log(resposta);
 
-    res.send(JSON.stringify({ bruno: resposta }));
+    res.send(JSON.stringify({ data: resposta }));
   })
     .catch((e) => {
       console.log('err: ' + e);
